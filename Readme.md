@@ -55,6 +55,7 @@ Due to coarse-to-fine training strategy, both width and height of the input imag
 
 - [CasMVSNet](https://github.com/kwea123/CasMVSNet_pl)
 - [PatchmatchNet](https://github.com/FangjinhuaWang/PatchmatchNet)
+- [DDLMVS](https://github.com/Mirmix/ddlmvs)
 
 #### Style Transfer:
 - [Neural Style Transfer](https://arxiv.org/abs/1508.06576)
@@ -69,10 +70,10 @@ Due to coarse-to-fine training strategy, both width and height of the input imag
 
 ## Bibtex
 ```
-@article{???,
-  author    = {Nail Ibrahimli, Julian F. P. Kooij, and Liangliang Nan},
-  title     = {MuVieCAST: Multi-View Consistent Artistic Style Transfer},
-  journal   = {3DV},
-  year      = {2024},
-}
+@InProceedings{ibrahimli2024muviecast,
+        author    = {Nail Ibrahimli, Julian F. P. Kooij, and Liangliang Nan},
+        title     = {MuVieCAST: Multi-View Consistent Artistic Style Transfer},
+        booktitle = {3DV},
+        year      = {2024},
+      }
 ```
