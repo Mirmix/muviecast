@@ -1,5 +1,5 @@
 # MuVieCAST: Multi-View Consistent Artistic Style Transfer
-[Project page](https://muviecast.github.io) | [Paper](#) 
+[Project page](https://muviecast.github.io) | [Paper](https://arxiv.org/abs/2312.05046) 
 
 #### *Official PyTorch implementation of MuVieCAST: Multi-View Consistent Artistic Style Transfer.*
 
