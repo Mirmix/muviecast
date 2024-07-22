@@ -1,0 +1,223 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.mvcast {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+.cyan-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(171, 100%, 41%), 2px 2px hsl(171, 100%, 41%), 3px 3px hsl(171, 100%, 41%), 4px 4px hsl(171, 100%, 41%), 5px 5px hsl(171, 100%, 41%), 6px 6px hsl(171, 100%, 41%), 7px 7px hsl(171, 100%, 41%);
+}
+.cyan-small-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(171, 100%, 41%), 2px 2px hsl(171, 100%, 41%), 3px 3px hsl(171, 100%, 41%);
+}
+
+.purple-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(271, 100%, 41%), 2px 2px hsl(271, 100%, 41%), 3px 3px hsl(271, 100%, 41%), 4px 4px hsl(271, 100%, 41%), 5px 5px hsl(271, 100%, 41%), 6px 6px hsl(271, 100%, 41%), 7px 7px hsl(271, 100%, 41%);
+}
+
+.purple-small-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(271, 100%, 41%), 2px 2px hsl(271, 100%, 41%), 3px 3px hsl(271, 100%, 41%);
+}
+
+.pink-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(320, 100%, 41%), 2px 2px hsl(320, 100%, 41%), 3px 3px hsl(320, 100%, 41%), 4px 4px hsl(320, 100%, 41%), 5px 5px hsl(320, 100%, 41%), 6px 6px hsl(320, 100%, 41%), 7px 7px hsl(320, 100%, 41%);
+}
+
+.pink-small-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(320, 100%, 41%), 2px 2px hsl(320, 100%, 41%), 3px 3px hsl(320, 100%, 41%);
+}
+.orange-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(30, 100%, 50%), 2px 2px hsl(30, 100%, 50%), 3px 3px hsl(30, 100%, 50%), 4px 4px hsl(30, 100%, 50%), 5px 5px hsl(30, 100%, 50%), 6px 6px hsl(30, 100%, 50%), 7px 7px hsl(30, 100%, 50%);
+}
+.orange-small-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 1px 1px hsl(30, 100%, 50%), 2px 2px hsl(30, 100%, 50%), 3px 3px hsl(30, 100%, 50%);
+}
+.multicolor-shadow {
+  font-family: "Lato", sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  text-shadow: 
+      1px 1px hsl(0, 100%, 50%),
+      2px 2px hsl(60, 100%, 50%),
+      3px 3px hsl(120, 100%, 50%),
+      4px 4px hsl(180, 100%, 50%),
+      5px 5px hsl(240, 100%, 50%),
+      6px 6px hsl(300, 100%, 50%),
+      7px 7px hsl(360, 100%, 50%);
+}
+
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}

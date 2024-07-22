@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="multi-view consistent style transfer network architecture that enables consistent style transfer between multiple viewpoints.">
+  <meta name="keywords" content="MVS, Style Transfer, VGG, Radiance fields, Neural Rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MuVieCAST: Multi-View Consistent Artistic Style Transfer</title>
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title multicolor-shadow"><em>MuVieCAST:</em> Multi-View Consistent Artistic Style Transfer</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://3d.bk.tudelft.nl/nail/"> Nail Ibrahimli,</a>  
+                <a href="https://jkooij.github.io/"> Julian F. P. Kooij,  </a>
+                <a href="https://3d.bk.tudelft.nl/liangliang/"> Liangliang Nan </a>
+              </span><br>
+              <!--span class="author-block">
+              <a href="https://webpage">Name Surname</a><sup>1</sup>,</span-->
+            </div>
+            <div class="is-size-5 publication-authors">
+              <!--span class="author-block"><sup>1</sup>University of ..,</span-->
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <!-- PDF Link. -->
+                  <a href="https://drive.google.com/file/d/13C9oiafN20gB6fnmmG7dW6kkrwPUvgW6/view?usp=sharing" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (Hi-res)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <!-- arXiv -->
+                  <a href="https://arxiv.org/abs/2312.05046" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <!-- Video Link. -->
+                  <a href="./static/images/muviecast_poster.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <!-- poster icon -->
+                      <i class="fas fa-pallet"></i>
+                                          </span>
+                    <span>Poster</span>
+                  </a>
+                </span>
+                <!--span class="link-block"-->
+                  <!-- Video Link. -->
+                  <!--a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span-->
+                <span class="link-block">
+                  <!-- Code Link. -->
+                  <a href="https://github.com/Mirmix/muviecast" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>     
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+
+              We present a modular multi-view consistent style transfer network architecture <span
+                class="MuVieCAST">MuVieCAST</span> that enables consistent style transfer between multiple viewpoints of the
+              same scene.
+              This network architecture supports both sparse and dense views, making it versatile enough to handle a
+              wide range of multi-view image datasets.
+              The approach consists of three modules that perform specific tasks related to style transfer, namely
+              content preservation, image transformation, and multi-view consistency enforcement.
+              We evaluate our approach extensively across multiple application domains including depth-map-based point
+              cloud fusion, mesh reconstruction, and novel-view synthesis.
+              The results demonstrate that the framework produces high-quality stylized images while maintaining
+              consistency across multiple views, even for complex styles that involve mosaic tessellations or extensive
+              brush strokes.
+              Our modular multi-view consistent style transfer framework is extensible and can easily be integrated with
+              various backbone architectures, making it a flexible solution for multi-view style transfer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <img src="./static/images/pipeline_v3.png" alt="Description of the image" style="width: 770px;">
+
+          </div>
+        </div>
+      </section>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3  pink-small-shadow">Paper Video</h2>
+          <div class="publication-video">
+            <video id="MuVieCAST" autoplay controls muted loop playsinline>
+              <source src="./static/videos/muviecast_nvs.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+
+
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h1 class="title is-2">Results</h1>
+
+          <h2 class="title is-3 cyan-small-shadow">Pointcloud reconstruction </h2>
+          <div class="columns is-centered">
+            <!-- Visual Effects. -->
+            <div class="column">
+              <div class="content">
+                <h3 class="title is-4">Texturing quality</h3>
+                <p>
+                  The bird point cloud reconstructed using depth
+                  map fusion from the 49 input images and a style image.
+                  This experiment demonstrates the stylization capability of
+                  our network (CasMVSNet_UNet) to reveal finer details in
+                  textured areas, even in shadowed regions. <br>
+                </p>
+                <img src="./static/images/birds_coloring.png" alt="Description of the image">
+              </div>
+            </div>
+            <!--/ Visual Effects. -->
+
+            <!-- Matting. -->
+            <div class="column">
+              <h3 class="title is-4">Reconstruction quality</h3>
+              <div class="columns is-centered">
+                <div class="column content">
+                  <p>
+                    Comparison of the point clouds reconstructed (CasMVSNet_UNet)
+                    from the original input images (left column) and stylized
+                    images (right column). Top: colored with original inputs. Middle: colored with stylized colors.
+                    Bottom: uniform coloring.
+                  </p>
+                  <img src="./static/images/birds_geometry.png" alt="Description of the image" style="width: 450px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="title is-4">Comparing stylization backbones</h3>
+      <div class="columns is-centered">
+        <div class="column content">
+          <img src="./static/images/Scan122.png" alt="Description of the image">
+          <p>
+            Point cloud reconstruction results using PatchmatchNet backbone (Geometry + Coloring). The point clouds (a),
+            (b), and (c)
+            are identical in terms of geometry, with (a) colored by the 64 original input images, (b) colored by the
+            stylized images
+            using the output of Patchmatchnet UNet, and (c) colored by the stylized images using the output of
+            Patchmatchnet AdaIN.
+            (d) and (e) are reconstructed from only the stylized images.
+          </p>
+        </div>
+      </div>
+      <h2 class="title is-3 orange-small-shadow">Neural rendering and mesh reconstruction experiments</h2>
+      <div class="columns is-centered">
+        <div class="column content">
+          <img src="./static/images/mesh_styling.png" alt="Description of the image">
+          <p>
+            Neural mesh reconstruction results. First row: CasMVSNet UNet. Second row: CasMVSNet AdaIN. Third row:
+            PatchmatchNet UNet. Fourth row: PatchmatchNet AdaIN. The columns in the figure are as follows: (a) Input image. (b)
+            Stylized image, (c) The stylized mesh surface rendering learned by IDR. (d) The mesh reconstructed from the stylized
+            images. (e) The mesh reconstruction from the original input images.
+          </p>
+        </div>
+      </div>
+      <h3 class="title is-4">Mesh editing</h3>
+      <div class="columns is-centered">
+        <div class="column content">
+          <img src="./static/images/mesh_editing.png" alt="Description of the image">
+          <p>
+            Mesh editing effect. The reconstructed mesh demonstrates stripe-like geometric features.
+          </p>
+        </div>
+      </div>
+      <h3 class="title is-4">Mesh coloring</h3>
+      <div class="columns is-centered">
+        <div class="column content">
+          <img src="./static/images/mesh_coloring.png" alt="Description of the image">
+          <p>
+            Mesh surface coloring (Geometry + Coloring). Meshes (a) and (b) have the same geometric properties but differ
+            in their coloring. Specifically, (a) and (c) are colored using 64 original input images, while (b) and (d) are colored using the
+            stylized images. The geometry of (a) and (b) is derived from the original inputs, while the geometry of (c) and (d) is learned
+            from the stylized images.
+          </p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <h3 class="title is-3 purple-small-shadow">Novel view synthesis </h2>
+        <h3 class="title is-4">NeRF results</h3>
+    </div>
+    <br>
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-mansion_artiste">
+                <video poster="" id="mansion_artiste" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/mansion_artiste.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-family">
+                <video poster="" id="family" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/family.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-truck_v2">
+                <video poster="" id="truck_v2" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/truck_v2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-truck_46">
+                <video poster="" id="truck_46" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/truck_46.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-sculp_lady">
+                <video poster="" id="sculp_lady" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/lady_sculp.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-sculp_lady">
+                <video poster="" id="sculp_lady" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/train.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-playground">
+                <video poster="" id="playground" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/playground.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-playground">
+                <video poster="" id="playground" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/horse_escher.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+      <div class="container is-max-desktop">
+        <h3 class="title is-3 purple-small-shadow">Comparison and User Survey </h3>
+        <p>
+          To evaluate the effectiveness of our approach compared to the recent state-of-the-art method Artistic Radiance Fields (ARF) [Zhang et al, ECCV 22], we conducted an anonymous user survey with 40 participants.
+During the survey, participants were provided with sample scene images and style images. The evaluation was performed on five scenes from the Tanks and Temples dataset each paired with a distinct style image. 
+For each scene, participants were presented with two videos in random order.
+One video was generated using the ARF method, utilizing ground truth pose information and recommended parameters.
+To ensure a fair assessment, we adhered closely to the default trajectory employed by ARF.  
+In all NeRF experiments for our method, we extended our evaluation beyond computing radiance fields to include the direct estimation of camera calibrations from stylized images using the colmap SfM.
+        </p>
+        <br>
+        <style>
+          /* Apply CSS to align videos vertically */
+          .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          /* Add some margin between videos */
+          .video-container video {
+            margin-bottom: 8px;
+          }
+        </style>
+        
+        <div class="columns is-centered">
+          <div class="column content">
+            <h2 class="title is-4">ARF</h2>
+            <p>
+              The ARF videos were rendered using groundtruth pose information and the recommended parameters and trajectory, which were determined by the author.
+              The code and trajectories for ARF is publicly available at <a href="https://github.com/Kai-46/ARF-svox2">this link</a>.
+              <br>
+            </p>
+            <div class="video-container">
+              <video id="ARF_family" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/ARF_family.mov" type="video/mp4">
+              </video>
+              <video id="ARF_playground" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/ARF_playground.mov" type="video/mp4">
+              </video>
+              <video id="ARF_horse_escher" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/ARF_horse_escher.mp4" type="video/mp4">
+              </video>
+              <video id="ARF_train" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/ARF_train.mp4" type="video/mp4">
+              </video>
+              <video id="ARF_truck" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/ARF_truck.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        
+          <div class="column content">
+            <h2 class="title is-4">Ours</h2>
+            <p>
+              To demonstrate the robustness of MV consistency, we used pose information estimated from styled images. To ensure a fair assessment, we made efforts to closely follow to the default trajectory utilized by ARF.
+            </p>
+              <video id="OUR_family" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/our_family.mov" type="video/mp4">
+              </video>
+              <video id="OUR_playground" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/our_playground.mov" type="video/mp4">
+              </video>
+              <video id="OUR_horse_escher" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/our_horse_escher.mp4" type="video/mp4">
+              </video>
+              <video id="OUR_train" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/our_train.mp4" type="video/mp4">
+              </video>
+              <video id="OUR_truck" autoplay controls muted loop playsinline height="400px">
+                <source src="./static/videos/our_truck.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        
+        
+        <script>
+          document.getElementById('OUR_family').playbackRate = 0.59; // Slows down the OUR video by half
+          document.getElementById('OUR_playground').playbackRate = 0.59; // Slows down the OUR video by half
+        </script>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="./static/images/comparison_nvs_v2.png" alt="Description of the image">
+            <p>
+              Comparison of Novel-View Synthesis with ARF on five "Tanks and Temples" scenes in five different styles.  
+              On the left, sample scene images and style images are displayed. 
+              In the middle, the top row with a blue background showcases our results, while the bottom row shows the results of ARF. 
+              On the right, our user study results are presented, based on feedback from 40 participants.
+              The results of the survey indicated that in 68% of the cases, participants preferred our results over the ones generated by ARF. 
+               Below, you can find the NERF videos (their order were randomized in user study) used in the actual user study.
+           </p>
+          </div>
+        </div>
+       
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Related Links</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              <h4 class="title is-5">Neural Rendering</h4>
+              <a href="https://www.cs.cornell.edu/projects/arf/">ARF, </a> <a href="https://www.matthewtancik.com/nerf">NeRF, </a> <a href="https://nvlabs.github.io/instant-ngp/">Instant-NGP, </a> <a href="https://lioryariv.github.io/idr/">IDR, </a> <a href="https://docs.nerf.studio/en/latest/">Nerfstudio </a>
+            </p>
+            <p>
+              <h4 class="title is-5">Multi-View Stereo Networks</h4>
+              <a href="https://arxiv.org/pdf/1912.06378.pdf">CasMVSNet, </a> <a href="https://arxiv.org/pdf/2012.01411.pdf">PatchmatchNet, </a>  <a href="https://arxiv.org/abs/2203.01391.pdf">DDLMVS </a> </p>
+            <p>
+              <h4 class="title is-5">Style Transfer</h4>
+              <a href="https://arxiv.org/abs/1508.06576">NST, </a>  <a href="https://arxiv.org/abs/1603.08155">Fast Style Transfer, </a> <a href="https://arxiv.org/abs/1703.06868">AdaIN-based Style Transfer </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Embed pdf in the webpage -->
+  
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Poster</h2>
+      <div class="pdf-container">
+        <object data="./static/images/muviecast_poster.pdf" width="1181" height="890"></object>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@InProceedings{ibrahimli2024muviecast,
+        author    = {Nail Ibrahimli, Julian F. P. Kooij, and Liangliang Nan},
+        title     = {MuVieCAST: Multi-View Consistent Artistic Style Transfer},
+        booktitle = {3DV},
+        year      = {2024},
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="#">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              We adapted <a href="https://github.com/nerfies/nerfies.github.io">source
+                code of Nerfies paper</a>  to create this website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
